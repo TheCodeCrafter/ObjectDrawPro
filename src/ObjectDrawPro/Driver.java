@@ -5,6 +5,8 @@ import objectdraw.*;
 import java.util.ArrayList;
 import java.util.EventListener;
 
+import ObjectDrawPro.Listeners.StartListener;
+
 /**
  * A backend-reference for an automatic creation and management of a DrawingCanvas.
  *
@@ -33,4 +35,45 @@ public class Driver extends WindowController {
     public void addListener(EventListener listener) {
         listeners.add(listener);
     }
+    
+    public void addMouseListener(MouseListener listener) {
+        listeners.add(listener);
+        this.addMouseListener(listener);
+    }
+    
+    public void addKeyListener(KeyListener listener) {
+        listeners.add(listener);
+        this.addKeyListener(listener);
+    }
+    
+    // BEGIN FUNCTION FROM WINDOW CONTROLLER
+    public void begin() {
+        listeners.forEach((listener) -> {
+            if(listener instanceof StartListener) {
+                listener.onBegin();
+            }
+        });
+    }
+    
+    // MOUSE EVENT HANDLERS //
+    public void onMousePress(Location point) {
+        
+    }
+    
+    public void onMouseRelease(Location point) {
+        
+    }
+    
+    public void onMouseDrag(Location point) {
+        
+    }
+    
+    public void onMouseEnter(Location point) {
+        
+    }
+    
+    public void onMouseExit(Location point) {
+        
+    }
+    ///////////////////////////
 }

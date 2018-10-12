@@ -2,8 +2,12 @@ package ObjectDrawPro;
 
 import objectdraw.*;
 
+import java.awt.event.KeyListener;
 import java.awt.event.MouseListener;
+import java.util.EventListener;
 import java.util.HashMap;
+
+import ObjectDrawPro.Listeners.StartListener;
 
 /**
  * The main manager file for the engine, this is what is accessed to determine things.
@@ -40,7 +44,15 @@ public class Game {
         return scene;
     }
     
+    public void addStartListener(StartListener listener) {
+        driver.addListener(listener);
+    }
+    
     public void addMouseListener(MouseListener listener) {
         driver.addListener(listener);
+    }
+    
+    public void addKeyListener(KeyListener listener) {
+        driver.addKeyListener(listener);
     }
 }
