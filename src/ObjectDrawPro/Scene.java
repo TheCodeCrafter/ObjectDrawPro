@@ -29,6 +29,15 @@ public class Scene {
         canvas = tCanvas;
     }
     
+    Scene(Scene scene) {
+        this.canvas = scene.canvas;
+        this.sprites = scene.sprites;
+    }
+    
+    public DrawingCanvas getCanvas() {
+        return canvas;
+    }
+    
     public void add(Sprite sprite) {
         sprites.add(sprite);
         

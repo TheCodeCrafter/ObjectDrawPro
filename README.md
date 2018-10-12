@@ -23,16 +23,8 @@ public class MyGame {
       () -> begin()
     );
     
-    game.addKeyListener(new KeyListener() {
-      public void keyPressed(KeyEvent event) {
-        System.out.println(event.getKeyChar());
-      }
-    });
-    
-    game.addMouseListener(new MouseListener() {
-      public void onMousePress(Location point) {
-        System.out.println(point);
-      }
+    game.addMouseListener(() -> {
+        // Event Code
     });
   }
   

@@ -1,7 +1,7 @@
 package ObjectDrawPro;
 
 import objectdraw.*;
-import java.awt.*;
+import java.util.HashMap;
 
 /**
  * The main manager file for the engine, this is what is accessed to determine things.
@@ -10,19 +10,31 @@ import java.awt.*;
  * @version 1.0
  */
 public class Game {
-    private static Driver driver;
+    private Driver driver;
     
     private DrawingCanvas mainCanvas;
+    private Scene scene;
     
-    private DrawingCanvas[] scenes;
+    private HashMap<String, Scene> scenes = new HashMap<String, Scene>();
     
-    Game() {
-        driver = new Driver(800, 600);
+    Game(int width, int height) {
+        driver = new Driver(width, height);
         mainCanvas = driver.getCanvas();
     }
     
-    public void switchScene(DrawingCanvas newCanvas) {
+    public void switchScene(Scene newScene) {
         mainCanvas.clear();
-        mainCanvas = newCanvas;
+        
+        scene = newScene;
+        
+        mainCanvas = scene.getCanvas();
+    }
+    
+    public Scene getScene(String name) {
+        return scenes.get(name);
+    }
+    
+    public Scene getCurrentScene() {
+        return scene;
     }
 }
