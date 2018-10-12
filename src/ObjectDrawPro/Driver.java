@@ -2,8 +2,8 @@ package ObjectDrawPro;
 
 import objectdraw.*;
 
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.EventListener;
 
 /**
  * A backend-reference for an automatic creation and management of a DrawingCanvas.
@@ -16,7 +16,7 @@ public class Driver extends WindowController {
     
     private static final long serialVersionUID = 1;
     
-    private ArrayList<ActionListener> listeners = new ArrayList<ActionListener>();
+    private ArrayList<EventListener> listeners = new ArrayList<EventListener>();
     
     Driver(int width, int height) {
         this.startController(width, height);
@@ -26,9 +26,11 @@ public class Driver extends WindowController {
         return canvas;
     }
     
-    public ArrayList<ActionListener> getListeners() {
+    public ArrayList<EventListener> getListeners() {
         return listeners;
     }
     
-    
+    public void addListener(EventListener listener) {
+        listeners.add(listener);
+    }
 }

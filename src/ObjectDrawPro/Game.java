@@ -1,6 +1,8 @@
 package ObjectDrawPro;
 
 import objectdraw.*;
+
+import java.awt.event.MouseListener;
 import java.util.HashMap;
 
 /**
@@ -36,5 +38,9 @@ public class Game {
     
     public Scene getCurrentScene() {
         return scene;
+    }
+    
+    public void addMouseListener(MouseListener listener) {
+        driver.addListener(listener);
     }
 }

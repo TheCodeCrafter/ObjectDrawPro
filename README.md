@@ -28,6 +28,7 @@ public class MyGame {
     });
   }
   
+  // It's good for the begin event, but nothing else
   public void begin() {
     // Code
   }
