@@ -2,8 +2,10 @@ package ObjectDrawPro;
 
 import objectdraw.*;
 
-import java.util.ArrayList;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseListener;
 import java.util.EventListener;
+import java.util.ArrayList;
 
 import ObjectDrawPro.Listeners.StartListener;
 
@@ -50,7 +52,7 @@ public class Driver extends WindowController {
     public void begin() {
         listeners.forEach((listener) -> {
             if(listener instanceof StartListener) {
-                listener.onBegin();
+                ((StartListener)listener).onBegin();
             }
         });
     }

@@ -4,7 +4,6 @@ import objectdraw.*;
 
 import java.awt.event.KeyListener;
 import java.awt.event.MouseListener;
-import java.util.EventListener;
 import java.util.HashMap;
 
 import ObjectDrawPro.Listeners.StartListener;
@@ -23,15 +22,36 @@ public class Game {
     
     private HashMap<String, Scene> scenes = new HashMap<String, Scene>();
     
+    /**
+     * The constructor for a simple Game object to handle events and scene management.&nbsp;Creates a window.
+     * 
+     * @param width The width of the new window
+     * @param height The height of the new window
+     * @return A new Game object and creates a new AWT JApplet Window (Based off of WindowController)
+     */
     Game(int width, int height) {
         driver = new Driver(width, height);
         mainCanvas = driver.getCanvas();
     }
     
+    /**
+     * Switches the current visible scene to a brand new scene, and adds it to the scene list.
+     * 
+     * @param newScene The new scene object that will be used
+     * @return void
+     */
     public void switchScene(Scene newScene) {
         mainCanvas.clear();
         
         scene = newScene;
+        
+        mainCanvas = scene.getCanvas();
+    }
+    
+    public void setScene(String sceneName) {
+        mainCanvas.clear();
+        
+        scene = scenes.get(sceneName);
         
         mainCanvas = scene.getCanvas();
     }
